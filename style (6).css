@@ -1,0 +1,252 @@
+/* --- TAMPILAN UI/UX BY ARIF HIMAWAN AULADY --- */
+
+:root {
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary: #0ea5e9;
+    --primary-hover: #0284c7;
+    --secondary: #f97316;
+    --secondary-hover: #ea580c;
+    --success: #10b981;
+    --success-hover: #059669;
+    --border-color: #cbd5e1;
+    --error: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.file-drop-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8fafc;
+    transition: border-color 0.2s;
+}
+
+.file-drop-area:hover {
+    border-color: var(--primary);
+}
+
+input[type="file"] {
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.key-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.key-inputs input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.key-inputs input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+.help-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-encrypt { background-color: var(--primary); }
+.btn-encrypt:hover { background-color: var(--primary-hover); }
+
+.btn-decrypt { background-color: var(--secondary); }
+.btn-decrypt:hover { background-color: var(--secondary-hover); }
+
+.hidden { display: none !important; }
+
+#downloadSection {
+    margin-top: 25px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.success-box {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.success-box p {
+    color: #065f46;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--success);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover { background-color: var(--success-hover); }
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- STYLING KHUSUS POPUP NOTIFIKASI --- */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.show .popup-box {
+    transform: translateY(0) scale(1);
+}
+
+.popup-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.popup-box p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.text-error { color: var(--error) !important; }
+.text-warning { color: var(--secondary) !important; }
+.text-success { color: var(--success) !important; }
+
+.btn-close {
+    background-color: var(--text-main);
+    width: 100%;
+}
+.btn-close:hover { background-color: #334155; }

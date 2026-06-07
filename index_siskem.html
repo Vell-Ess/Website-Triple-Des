@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoFile - 3DES File Security</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CryptoFile</h1>
+            <p class="subtitle">Aplikasi Pengamanan File Berbasis Web Menggunakan Algoritma Triple DES (3DES)</p>
+        </header>
+        
+        <main class="card">
+            <div class="form-group">
+                <label for="fileInput" class="form-label">1. Pilih atau Unggah File</label>
+                <div class="file-drop-area">
+                    <input type="file" id="fileInput" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">2. Masukkan Kunci Mandiri (Kunci Total 112/168-bit)</label>
+                <div class="key-inputs">
+                    <input type="text" id="key1" placeholder="Kunci Mandiri 1 (K1)" maxlength="8" required>
+                    <input type="text" id="key2" placeholder="Kunci Mandiri 2 (K2)" maxlength="8" required>
+                    <input type="text" id="key3" placeholder="Kunci Mandiri 3 (K3)" maxlength="8" required>
+                </div>
+                <small class="help-text">Catatan: Setiap kunci maksimal 8 karakter. Untuk keamanan tertinggi, gunakan 3 kunci yang berbeda.</small>
+            </div>
+
+            <div class="action-buttons">
+                <button id="btnEncrypt" class="btn btn-encrypt" onclick="processFile('encrypt')">Enkripsi File</button>
+                <button id="btnDecrypt" class="btn btn-decrypt" onclick="processFile('decrypt')">Dekripsi File</button>
+            </div>
+
+            <div id="downloadSection" class="hidden">
+                <div class="success-box">
+                    <p>🎉 Proses Berhasil Diselesaikan!</p>
+                    <a id="downloadLink" class="download-btn">Unduh Hasil File</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Dikembangkan oleh Kelompok Velano, Arif & Abthal &copy; 2026</p>
+        </footer>
+    </div>
+
+    <div id="customPopup" class="popup-overlay hidden">
+        <div class="popup-box">
+            <h3 id="popupTitle">Pemberitahuan</h3>
+            <p id="popupMessage">Pesan di sini...</p>
+            <button onclick="closePopup()" class="btn btn-close">Mengerti</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
